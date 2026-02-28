@@ -48,7 +48,7 @@ export default function Tela_Login_Responsivo() {
         .catch((error) => {
           if (error.code == "ERR_NETWORK") {
             Axios.post(
-              "https://willing-catfish-proven.ngrok-free.app/validar",
+              "https://5wz5p2ht-5000.brs.devtunnels.ms/validar",
 
               {
                 User: Input_User,

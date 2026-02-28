@@ -58,7 +58,7 @@ export default function Cadastro_Produto() {
         .catch((error) => {
           if (error.code == "ERR_NETWORK") {
             Axios.post(
-              "https://willing-catfish-proven.ngrok-free.app/cadastrar",
+              "https://5wz5p2ht-5000.brs.devtunnels.ms/cadastrar",
               Dados_Cadastrados,
               {
                 headers: {

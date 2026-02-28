@@ -80,7 +80,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
       .catch((error) => {
         if (error.code == "ERR_NETWORK") {
           Axios.post(
-            "https://willing-catfish-proven.ngrok-free.app/pesquisa-categoria-produto",
+            "https://5wz5p2ht-5000.brs.devtunnels.ms/pesquisa-categoria-produto",
             Atributos.Filtro
               ? {
                   Categoria_Para_Pesquisa: Categoria_Pesquisada,

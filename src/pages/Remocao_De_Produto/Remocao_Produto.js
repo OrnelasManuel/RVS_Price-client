@@ -27,7 +27,7 @@ export default function Remocao_Produto() {
       .catch((error) => {
         if (error.code == "ERR_NETWORK") {
           Axios.post(
-            "https://willing-catfish-proven.ngrok-free.app/produtos-cadastrados",
+            "https://5wz5p2ht-5000.brs.devtunnels.ms/produtos-cadastrados",
             {
               headers: {
                 "Content-Type": "application/json",
@@ -124,7 +124,7 @@ export default function Remocao_Produto() {
                           .catch((error) => {
                             if (error.code == "ERR_NETWORK") {
                               Axios.post(
-                                "https://willing-catfish-proven.ngrok-free.app/remocao-de-produto",
+                                "https://5wz5p2ht-5000.brs.devtunnels.ms/remocao-de-produto",
                                 { Id_Para_Remocao: Categoria.Id_Produtos },
                                 {
                                   headers: {

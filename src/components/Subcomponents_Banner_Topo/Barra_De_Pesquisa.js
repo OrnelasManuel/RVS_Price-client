@@ -43,7 +43,7 @@ export default function Barra_De_Pesquisa() {
       .catch((error) => {
         if (error.code == "ERR_NETWORK") {
           Axios.post(
-            "https://willing-catfish-proven.ngrok-free.app/produtos-cadastrados",
+            "https://5wz5p2ht-5000.brs.devtunnels.ms/produtos-cadastrados",
             {
               headers: {
                 "Content-Type": "application/json",
