@@ -43,7 +43,7 @@ export default function Resultados_Obtidos() {
 
     const Intervalo_De_Carregamento_De_Pontos = setInterval(
       Funcao_De_Interval,
-      500
+      500,
     );
 
     console.log(Produtos_Catalogados_Achados);
@@ -57,7 +57,7 @@ export default function Resultados_Obtidos() {
 
   if (localStorage.getItem("Produtos_No_Carrinho")) {
     var Produtos_No_Carrinho_Inicial = JSON.parse(
-      localStorage.getItem("Produtos_No_Carrinho")
+      localStorage.getItem("Produtos_No_Carrinho"),
     );
   }
 
@@ -67,11 +67,11 @@ export default function Resultados_Obtidos() {
   const Adicionar_Itens_Ao_Carrinho = (Informacoes_Do_Item) => {
     //#region Notificações de carrinho
     var Div_De_Notificacao_De_Carrinho = document.querySelector(
-      ".Bola_Que_Informa_Quantos_Produtos_Tem_No_Carrinho"
+      ".Bola_Que_Informa_Quantos_Produtos_Tem_No_Carrinho",
     );
     var Teste_De_Igualdade = 0;
     var Quantia_De_Produtos_Adicionados_No_Carrinho = Cookies.get(
-      "Quantia_De_Produtos_Adicionados_No_Carrinho"
+      "Quantia_De_Produtos_Adicionados_No_Carrinho",
     );
     var Primeira_Execucao_Para_Aviso = true;
 
@@ -114,7 +114,7 @@ export default function Resultados_Obtidos() {
       Cookies.set(
         "Quantia_De_Produtos_Adicionados_No_Carrinho",
         Itens_No_Carrinho,
-        { expires: 30 }
+        { expires: 30 },
       );
 
       Div_De_Notificacao_De_Carrinho.innerHTML = Itens_No_Carrinho;
@@ -161,7 +161,7 @@ export default function Resultados_Obtidos() {
   useEffect(() => {
     localStorage.setItem(
       "Produtos_No_Carrinho",
-      JSON.stringify(Produtos_No_Carrinho)
+      JSON.stringify(Produtos_No_Carrinho),
     );
   }, [Produtos_No_Carrinho]);
   //#endregion
@@ -176,13 +176,13 @@ export default function Resultados_Obtidos() {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     )
       .then((Resposta) => {
         setProdutos_Catalogados_Achados(Resposta.data.produtos_achados);
 
         setPesquisa_Realizada(
-          Cookies.get("Valor_Da_Pesquisa_Digitado").replace(/---/g, " ")
+          Cookies.get("Valor_Da_Pesquisa_Digitado").replace(/---/g, " "),
         );
       })
       .catch((error) => {
@@ -193,34 +193,34 @@ export default function Resultados_Obtidos() {
               headers: {
                 "Content-Type": "application/json",
               },
-            }
+            },
           )
             .then((Resposta) => {
               setProdutos_Catalogados_Achados(Resposta.data.produtos_achados);
 
               setPesquisa_Realizada(
-                Cookies.get("Valor_Da_Pesquisa_Digitado").replace(/---/g, " ")
+                Cookies.get("Valor_Da_Pesquisa_Digitado").replace(/---/g, " "),
               );
             })
             .catch((secund_error) => {
               if (secund_error.code == "ERR_NETWORK") {
                 Axios.post(
-                  "https://zvfmwc2c-5000.brs.devtunnels.ms/produtos-cadastrados",
+                  "https://5wz5p2ht-5000.brs.devtunnels.ms/produtos-cadastrados",
                   {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                  }
+                  },
                 ).then((Resposta) => {
                   setProdutos_Catalogados_Achados(
-                    Resposta.data.produtos_achados
+                    Resposta.data.produtos_achados,
                   );
 
                   setPesquisa_Realizada(
                     Cookies.get("Valor_Da_Pesquisa_Digitado").replace(
                       /---/g,
-                      " "
-                    )
+                      " ",
+                    ),
                   );
                 });
               }
@@ -248,8 +248,8 @@ export default function Resultados_Obtidos() {
                         .includes(
                           Pesquisa_Realizada.normalize("NFD")
                             .replace(/[\u0300-\u036f]/g, "")
-                            .toLowerCase()
-                        )
+                            .toLowerCase(),
+                        ),
                     ).length
                   : Produtos_Catalogados_Achados.length}
               </strong>
@@ -268,7 +268,7 @@ export default function Resultados_Obtidos() {
                   .includes(
                     Pesquisa_Realizada.normalize("NFD")
                       .replace(/[\u0300-\u036f]/g, "")
-                      .toLowerCase()
+                      .toLowerCase(),
                   )
               ) {
                 return (
@@ -283,7 +283,7 @@ export default function Resultados_Obtidos() {
                     <div className="Div_Logo_Imagem_Nome_Preco_Avaliacao_Do_Produto">
                       {Inserir_Etiqueta_Do_Mercado(
                         item.Mercado,
-                        "Logo_Mercado_Produtos_Home"
+                        "Logo_Mercado_Produtos_Home",
                       )}
                       <div className="Div_De_Imagem_Do_Produto_Home">
                         <img

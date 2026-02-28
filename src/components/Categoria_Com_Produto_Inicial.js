@@ -6,7 +6,7 @@ import Estrelas_Do_Produto_Teste from "./Ferramentas/Estrelas_Do_Produto_Veridic
 import { toast } from "react-toastify";
 
 const Categoria_Produto_Json = await fetch(
-  "./data/Categorias_Para_Aparecer_Na_Home.json"
+  "./data/Categorias_Para_Aparecer_Na_Home.json",
 );
 const Categoria_Produto_Objeto = await Categoria_Produto_Json.json();
 
@@ -28,7 +28,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
 
   if (localStorage.getItem("Produtos_No_Carrinho")) {
     var Produtos_No_Carrinho_Inicial = JSON.parse(
-      localStorage.getItem("Produtos_No_Carrinho")
+      localStorage.getItem("Produtos_No_Carrinho"),
     );
   }
 
@@ -37,7 +37,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
   //#region Envio de Categoria e resultado
   const Enviar_Dados_De_Cadastro_Para_Servidor = (
     Categoria_Pesquisada,
-    Numero_Categoria
+    Numero_Categoria,
   ) => {
     Axios.post(
       // "https://rvsprice-server.vercel.app/pesquisa-categoria-produto",
@@ -53,7 +53,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     )
       .then((Resposta) => {
         if (!Produtos_Da_Categoria_Selecionada[Numero_Categoria]) {
@@ -91,7 +91,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
               headers: {
                 "Content-Type": "application/json",
               },
-            }
+            },
           )
             .then((Resposta) => {
               if (!Produtos_Da_Categoria_Selecionada[Numero_Categoria]) {
@@ -116,7 +116,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
             .catch((secund_error) => {
               if (secund_error.code == "ERR_NETWORK") {
                 Axios.post(
-                  "https://zvfmwc2c-5000.brs.devtunnels.ms/pesquisa-categoria-produto",
+                  "https://5wz5p2ht-5000.brs.devtunnels.ms/pesquisa-categoria-produto",
                   Atributos.Filtro
                     ? {
                         Categoria_Para_Pesquisa: Categoria_Pesquisada,
@@ -127,7 +127,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                  }
+                  },
                 ).then((Resposta) => {
                   if (!Produtos_Da_Categoria_Selecionada[Numero_Categoria]) {
                     setProdutos_Da_Categoria_Selecionada((prevState) => ({
@@ -159,11 +159,11 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
   const Adicionar_Itens_Ao_Carrinho = (Informacoes_Do_Item) => {
     //#region Notificações de carrinho
     var Div_De_Notificacao_De_Carrinho = document.querySelector(
-      ".Bola_Que_Informa_Quantos_Produtos_Tem_No_Carrinho"
+      ".Bola_Que_Informa_Quantos_Produtos_Tem_No_Carrinho",
     );
     var Teste_De_Igualdade = 0;
     var Quantia_De_Produtos_Adicionados_No_Carrinho = Cookies.get(
-      "Quantia_De_Produtos_Adicionados_No_Carrinho"
+      "Quantia_De_Produtos_Adicionados_No_Carrinho",
     );
     var Primeira_Execucao_Para_Aviso = true;
 
@@ -206,7 +206,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
       Cookies.set(
         "Quantia_De_Produtos_Adicionados_No_Carrinho",
         Itens_No_Carrinho,
-        { expires: 30 }
+        { expires: 30 },
       );
 
       Div_De_Notificacao_De_Carrinho.innerHTML = Itens_No_Carrinho;
@@ -249,8 +249,8 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
     ) {
       setProdutos_Da_Categoria_Selecionada(
         JSON.parse(
-          localStorage.getItem("Produtos_Ja_Encontrados_Anteriormente")
-        )
+          localStorage.getItem("Produtos_Ja_Encontrados_Anteriormente"),
+        ),
       );
       setLoading_Das_Categorias(false);
     }
@@ -281,7 +281,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
 
     const Intervalo_De_Carregamento_De_Pontos = setInterval(
       Funcao_De_Interval,
-      500
+      500,
     );
 
     if (
@@ -299,7 +299,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
     ) {
       localStorage.setItem(
         "Produtos_Ja_Encontrados_Anteriormente",
-        JSON.stringify(Produtos_Da_Categoria_Selecionada)
+        JSON.stringify(Produtos_Da_Categoria_Selecionada),
       );
     }
   }, [Produtos_Da_Categoria_Selecionada]);
@@ -307,7 +307,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
   useEffect(() => {
     localStorage.setItem(
       "Produtos_No_Carrinho",
-      JSON.stringify(Produtos_No_Carrinho)
+      JSON.stringify(Produtos_No_Carrinho),
     );
   }, [Produtos_No_Carrinho]);
 
@@ -352,7 +352,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
                             <div className="Div_Logo_Imagem_Nome_Preco_Avaliacao_Do_Produto">
                               {Inserir_Etiqueta_Do_Mercado(
                                 Categoria.Mercado,
-                                "Logo_Mercado_Produtos_Home"
+                                "Logo_Mercado_Produtos_Home",
                               )}
                               <div className="Div_De_Imagem_Do_Produto_Home">
                                 <img
@@ -369,7 +369,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
                                 {Categoria.Preco}
                               </p>
                               {Estrelas_Do_Produto_Teste(
-                                Math.floor(Math.random() * 6)
+                                Math.floor(Math.random() * 6),
                               )}
                             </div>
                             <div className="Div_Do_Botao_De_Carrinho">
@@ -384,7 +384,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
                             </div>
                           </div>
                         );
-                      }
+                      },
                     )
                   ) : (
                     <h3>Carregando produtos{Pontos_De_Carregamento}</h3>
@@ -422,7 +422,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
                       <div className="Div_Logo_Imagem_Nome_Preco_Avaliacao_Do_Produto">
                         {Inserir_Etiqueta_Do_Mercado(
                           Categoria.Mercado,
-                          "Logo_Mercado_Produtos_Home"
+                          "Logo_Mercado_Produtos_Home",
                         )}
                         <div className="Div_De_Imagem_Do_Produto_Home">
                           <img
@@ -435,7 +435,7 @@ export default function Categoria_Com_Produto_Inicial(Atributos) {
                         <p className="Nome_Do_Produto">{Categoria.Nome}</p>
                         <p className="Preco_Do_Produto">{Categoria.Preco}</p>
                         {Estrelas_Do_Produto_Teste(
-                          Math.floor(Math.random() * 6)
+                          Math.floor(Math.random() * 6),
                         )}
                       </div>
                       <div className="Div_Do_Botao_De_Carrinho">

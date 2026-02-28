@@ -36,7 +36,7 @@ export default function Login() {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       )
         .then((Resposta) => {
           if (Resposta.data.token) {
@@ -68,7 +68,7 @@ export default function Login() {
                 headers: {
                   "Content-Type": "application/json",
                 },
-              }
+              },
             )
               .then((Resposta) => {
                 if (Resposta.data.token) {
@@ -90,7 +90,7 @@ export default function Login() {
               .catch((secund_error) => {
                 if (secund_error.code == "ERR_NETWORK") {
                   Axios.post(
-                    "https://zvfmwc2c-5000.brs.devtunnels.ms/validar",
+                    "https://5wz5p2ht-5000.brs.devtunnels.ms/validar",
 
                     {
                       User: Input_User,
@@ -100,7 +100,7 @@ export default function Login() {
                       headers: {
                         "Content-Type": "application/json",
                       },
-                    }
+                    },
                   ).then((Resposta) => {
                     if (Resposta.data.token) {
                       var token = Resposta.data.token;
@@ -112,7 +112,7 @@ export default function Login() {
                       console.log("Erro: " + Resposta);
                       console.log(Resposta);
                       console.log(
-                        "Enviados: " + Input_User + " , " + Input_Senha
+                        "Enviados: " + Input_User + " , " + Input_Senha,
                       );
                       console.log(Resposta.data);
                       console.log("Data extratida: " + Resposta.data);

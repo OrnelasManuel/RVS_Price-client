@@ -35,7 +35,7 @@ export default function Barra_De_Pesquisa() {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     )
       .then((Resposta) => {
         setProdutos_Catalogados_Achados(Resposta.data.produtos_achados);
@@ -48,7 +48,7 @@ export default function Barra_De_Pesquisa() {
               headers: {
                 "Content-Type": "application/json",
               },
-            }
+            },
           )
             .then((Resposta) => {
               setProdutos_Catalogados_Achados(Resposta.data.produtos_achados);
@@ -56,15 +56,15 @@ export default function Barra_De_Pesquisa() {
             .catch((secund_error) => {
               if (secund_error.code == "ERR_NETWORK") {
                 Axios.post(
-                  "https://zvfmwc2c-5000.brs.devtunnels.ms/produtos-cadastrados",
+                  "https://5wz5p2ht-5000.brs.devtunnels.ms/produtos-cadastrados",
                   {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                  }
+                  },
                 ).then((Resposta) => {
                   setProdutos_Catalogados_Achados(
-                    Resposta.data.produtos_achados
+                    Resposta.data.produtos_achados,
                   );
                 });
               }
@@ -81,7 +81,7 @@ export default function Barra_De_Pesquisa() {
           src={Inserir_Etiqueta_Do_Mercado(
             Cookies.get("Pagina_De_Mercado"),
             "",
-            "Site"
+            "Site",
           )}
           className="Logo_Site"
           alt="Logo do Mercado"
@@ -110,7 +110,7 @@ export default function Barra_De_Pesquisa() {
               e.target.value.replace(/ /g, "---"),
               {
                 expires: 10,
-              }
+              },
             );
           }}
           autoComplete="off"
@@ -143,7 +143,7 @@ export default function Barra_De_Pesquisa() {
                   .includes(
                     Texto_Digitado_Para_Pesquisa.normalize("NFD")
                       .replace(/[\u0300-\u036f]/g, "")
-                      .toLowerCase()
+                      .toLowerCase(),
                   )
               ) {
                 return (
@@ -157,7 +157,7 @@ export default function Barra_De_Pesquisa() {
                         item.Nome.replace(/ /g, "---"),
                         {
                           expires: 10,
-                        }
+                        },
                       );
 
                       setTimeout(() => {
@@ -171,7 +171,7 @@ export default function Barra_De_Pesquisa() {
                     <span className="Controle_De_Imagem_De_Pesquisa">
                       {Inserir_Etiqueta_Do_Mercado(
                         item.Mercado,
-                        "Logo_Mercado_Resultados"
+                        "Logo_Mercado_Resultados",
                       )}
                       <img
                         src={item.Imagem}

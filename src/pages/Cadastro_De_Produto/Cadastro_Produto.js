@@ -35,7 +35,7 @@ export default function Cadastro_Produto() {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       )
         .then((Resposta) => {
           if (Resposta.data.cadastro_realizado) {
@@ -64,7 +64,7 @@ export default function Cadastro_Produto() {
                 headers: {
                   "Content-Type": "application/json",
                 },
-              }
+              },
             )
               .then((Resposta) => {
                 if (Resposta.data.cadastro_realizado) {
@@ -87,13 +87,13 @@ export default function Cadastro_Produto() {
               .catch((secund_error) => {
                 if (secund_error.code == "ERR_NETWORK") {
                   Axios.post(
-                    "https://zvfmwc2c-5000.brs.devtunnels.ms/cadastrar",
+                    "https://5wz5p2ht-5000.brs.devtunnels.ms/cadastrar",
                     Dados_Cadastrados,
                     {
                       headers: {
                         "Content-Type": "application/json",
                       },
-                    }
+                    },
                   ).then((Resposta) => {
                     if (Resposta.data.cadastro_realizado) {
                       alert("Cadastrado com sucesso");
@@ -148,25 +148,25 @@ export default function Cadastro_Produto() {
 
   //#region Criando variaveis para receber os valores dos inputs
   const [Imagem_Produto, setImagem_Produto] = useState(
-    Imagem_Escolhido ? Imagem_Escolhido : Sem_Imagem
+    Imagem_Escolhido ? Imagem_Escolhido : Sem_Imagem,
   );
   const [Nome_Produto, setNome_Produto] = useState(
-    Nome_Escolhido ? Nome_Escolhido : ""
+    Nome_Escolhido ? Nome_Escolhido : "",
   );
   const [Valor_Produto, setValor_Produto] = useState(
-    Valor_Escolhido ? Valor_Escolhido : "R$"
+    Valor_Escolhido ? Valor_Escolhido : "R$",
   );
   const [Nome_Mercado, setNome_Mercado] = useState(
-    Mercado_Escolhido ? Mercado_Escolhido : ""
+    Mercado_Escolhido ? Mercado_Escolhido : "",
   );
   const [Categoria, setCategoria] = useState(
-    Categoria_Escolhido ? Categoria_Escolhido : ""
+    Categoria_Escolhido ? Categoria_Escolhido : "",
   );
   const [Informacoes_Adicionais, setInformacoes_Adicionais] = useState(
-    Informacoes_Escolhido ? Informacoes_Escolhido : ""
+    Informacoes_Escolhido ? Informacoes_Escolhido : "",
   );
   const [Outros_Nomes, setOutros_Nomes] = useState(
-    Outros_Nomes_Escolhido ? Outros_Nomes_Escolhido : ""
+    Outros_Nomes_Escolhido ? Outros_Nomes_Escolhido : "",
   );
   //#endregion
 
@@ -272,7 +272,7 @@ export default function Cadastro_Produto() {
           Informacoes_Adicionais,
           Outros_Nomes,
         };
-      }
+      },
     );
 
     Mercado_Escolhido = undefined;
@@ -377,7 +377,7 @@ export default function Cadastro_Produto() {
             />
             {Inserir_Etiqueta_Do_Mercado(
               Nome_Mercado,
-              "Logo_Mercado_Pre_Cadastro"
+              "Logo_Mercado_Pre_Cadastro",
             )}
             <h3 className="Nome_Do_Pre_Produto_Cadastrado">{Nome_Produto}</h3>
             <p className="Valor_Do_Pre_Produto_Cadastrado">

@@ -19,7 +19,7 @@ export default function Pesquisa_De_Produto() {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     )
       .then((Resposta) => {
         setProdutos_Encontrados_Do_Mercado(Resposta.data.produtos_achados);
@@ -32,25 +32,25 @@ export default function Pesquisa_De_Produto() {
               headers: {
                 "Content-Type": "application/json",
               },
-            }
+            },
           )
             .then((Resposta) => {
               setProdutos_Encontrados_Do_Mercado(
-                Resposta.data.produtos_achados
+                Resposta.data.produtos_achados,
               );
             })
             .catch((secund_error) => {
               if (secund_error.code == "ERR_NETWORK") {
                 Axios.post(
-                  "https://zvfmwc2c-5000.brs.devtunnels.ms/produtos-cadastrados",
+                  "https://5wz5p2ht-5000.brs.devtunnels.ms/produtos-cadastrados",
                   {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                  }
+                  },
                 ).then((Resposta) => {
                   setProdutos_Encontrados_Do_Mercado(
-                    Resposta.data.produtos_achados
+                    Resposta.data.produtos_achados,
                   );
                 });
               }
@@ -82,7 +82,7 @@ export default function Pesquisa_De_Produto() {
                   <div className="Div_Logo_Imagem_Nome_Preco_Avaliacao_Do_Produto">
                     {Inserir_Etiqueta_Do_Mercado(
                       Categoria.Mercado,
-                      "Logo_Mercado_Produtos_Home"
+                      "Logo_Mercado_Produtos_Home",
                     )}
                     <div className="Div_De_Imagem_Do_Produto_Home">
                       <img
